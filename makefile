@@ -1,8 +1,8 @@
 VERSION := $(shell git log --pretty=format:'' | wc -l)
 
 build:
-	docker build -t portfolio-app:$(VERSION) . -f Dockerfile-zhijie
-	docker build -t portfolio-nginx:$(VERSION) ./nginx
+	docker build -t reference-en-app:$(VERSION) . -f Dockerfile-zhijie
+	docker build -t reference-en-nginx:$(VERSION) ./nginx
 
 run:
 	docker-compose up --build
