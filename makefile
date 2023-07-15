@@ -12,3 +12,10 @@ stop:
 
 clean: stop
 	docker compose --file 'docker-compose.yml' --project-name 'utils-reference' down
+
+status:
+	@if docker images | grep -q reference-en; then \
+        echo "Reference-en Builded"; \
+	else \
+		echo "No Image Builded"; \
+    fi
