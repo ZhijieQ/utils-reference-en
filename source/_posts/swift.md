@@ -3,24 +3,18 @@ title: Swift
 date: 2023-02-28 14:50:01
 background: bg-[#eb4e38]
 tags:
-    - Apple
-    - iOS
-    - iPadOS
+  - Apple
+  - iOS
+  - iPadOS
 categories:
-    - Programming
+  - Programming
 intro: |
-    This cheat sheet provides examples of using Swift that cover basic Swift knowledge, control flow etc.
+  This cheat sheet provides examples of using Swift that cover basic Swift knowledge, control flow etc.
 plugins:
-    - copyCode
+  - copyCode
 ---
 
-
-
-
-Getting Started
----
-
-
+## Getting Started
 
 ### Variable {.row-span-2}
 
@@ -39,8 +33,6 @@ print(numberOfToys)
 // prints "9"
 ```
 
-
-
 ### Type annotations
 
 ```swift
@@ -50,8 +42,6 @@ var isMorning: Bool = true
 var price: Double = 8.99
 ```
 
-
-
 ### Arithmetic operators {.row-span-3}
 
 - `+` Add
@@ -59,9 +49,10 @@ var price: Double = 8.99
 - `*` Multiplication
 - `/` Division
 - `%` Remainder
+
 {.cols-2 .marker-none}
 
-----
+---
 
 ```swift
 var x = 0
@@ -72,16 +63,15 @@ x = 4 / 2 // x is now 2
 x = 4 % 2 // x is now 0
 ```
 
-----
+---
 
 - `+=` Adds and assigns sums
 - `-=` subtract and assign the difference
 - `*=` Multiplication and assignment
 - `/=` Divide and assign quotient
 - `%=` Divide and assign remainder
+
 {.marker-none}
-
-
 
 #### Compound Assignment Operators
 
@@ -93,7 +83,6 @@ print("There are \(numberOfDogs) Dalmatians!")
 // print: There are 101 Dalmatians!
 ```
 
-
 ### String interpolation
 
 ```swift
@@ -102,8 +91,6 @@ print("I have \(apples) apples!")
 
 // print: I have 6 apples!
 ```
-
-
 
 ### Multi-line string
 
@@ -114,8 +101,6 @@ This is my favorite language!
 Yeah!
 """
 ```
-
-
 
 ### Code Comments
 
@@ -128,8 +113,6 @@ None will run!
 */
 ```
 
-
-
 ### Form a tuple {.col-span-2}
 
 ```swift
@@ -138,8 +121,6 @@ let player = ("Maya", 5, 150)
 print(player) // ("Maya", 5, 150)
 print("\(player.0): level \(player.1), \(player.2) pts") // Maya: level 5, 150 pts
 ```
-
-
 
 ### Decompose tuple
 
@@ -150,16 +131,13 @@ print("\(currentName): level \(curLevel)")
 // print: Maya: level 5
 ```
 
-
-
 ### Special comment syntax (MARK)
 
 ```swift
 // MARK: -view settings
 ```
+
 `MARK` can be used to display comments in the column
-
-
 
 ### Special comment syntax (TODO)
 
@@ -169,8 +147,6 @@ print("\(currentName): level \(curLevel)")
 
 `TODO` is used to display reminders of things that need to be done
 
-
-
 ### Special Comment Syntax (FIXME)
 
 ```swift
@@ -179,13 +155,7 @@ print("\(currentName): level \(curLevel)")
 
 `FIXME` is used to display reminders about things that need to be fixed
 
-
-
-
-Variable
-----
-
-
+## Variable
 
 ### Variable declaration
 
@@ -215,8 +185,6 @@ print(numberOfToys)
 // print "9"
 ```
 
-
-
 ### Constants
 
 Constants are declared with `let`:
@@ -242,8 +210,6 @@ let numberOfToys: Int = 8
 numberOfToys += 1
 // Error: numberOfToys is immutable
 ```
-
-
 
 ### Computed variables (get and set) {.row-span-3}
 
@@ -274,7 +240,8 @@ birth = birth2
 print(age) // 20
 ```
 
-In the example below, distanceInFeet has a `getter` and a `setter`. Because of the `setter`, the `getter` requires the keyword `get`:
+In the example below, distanceInFeet has a `getter` and a `setter`. Because of the `setter`, the `getter` requires the
+keyword `get`:
 
 ```swift
 var distanceInMeters: Float = 100
@@ -299,8 +266,6 @@ distanceInMeters = 800
 print(distanceInMeters) // 800.0
 print(distanceInFeet)   // 2624.0
 ```
-
-
 
 ### willSet {.row-span-2}
 
@@ -328,8 +293,6 @@ distance = 10 // print: distance will be set to 10
 
 `willSet` can be used to execute some code before setting the variable value
 
-
-
 ### didSet
 
 ```swift
@@ -342,8 +305,6 @@ var distance = 5 {
 distance = 10 // print: distance will be set to 10
               // print: its old value is: 5
 ```
-
-
 
 ### willSet and didSet
 
@@ -360,10 +321,7 @@ var distance = 5 {
 distance = 10
 ```
 
-Conditions
----
-
-
+## Conditions
 
 ### if statement
 
@@ -381,8 +339,6 @@ if 5 > 3 {
 // output: "5 is greater than 3"
 ```
 
-
-
 ### else statement
 
 ```swift
@@ -395,8 +351,6 @@ if turbulence {
 }
 // print: You are free to move around.
 ```
-
-
 
 ### else if statement
 
@@ -414,8 +368,6 @@ if weather == "sunny" {
 // print: take an umbrella
 ```
 
-
-
 ### Comparison Operators
 
 ```swift
@@ -427,14 +379,18 @@ if weather == "sunny" {
 "B" != "b" // true
 ```
 
--`<`  less than
--`>`  greater than
--`<=` less than or equal to
--`>=` greater than or equal to
--`==` is equal to
--`!=` is not equal to {.style-round cols-2}
+-`<` less than <br> -`>` greater than <br> -`<=` less than or equal to <br> -`>=` greater than or equal to <br> -`==` is
+equal to <br> -`!=` is not equal to
 
+### Range Operators
 
+```swift
+a...b      // numbers between a and b (including both a and b)
+a..<b      // numbers between a and b (including a but excluding b)
+...b      // numbers till b (including b)
+```
+
+-`a...b` Closed Range <br> -`a..<b` Half-Open Range <br> -`...b` One-Sided Range
 
 ### Ternary conditional operator
 
@@ -445,8 +401,6 @@ driverLicense
     ? print("driver seat") : print("passenger seat")
 // print: driver's seat
 ```
-
-
 
 ### switch statement
 
@@ -464,8 +418,6 @@ switch secondaryColor {
 // print: mix of blue and yellow
 ```
 
-
-
 ### switch statement: interval matching
 
 ```swift
@@ -482,8 +434,6 @@ switch year {
 }
 // print: post-impressionism
 ```
-
-
 
 ### switch statement: composite case
 
@@ -503,8 +453,6 @@ case "Uber", "Lyft":
 // print: restaurant takeaway
 ```
 
-
-
 ### switch statement: where clause
 
 ```swift
@@ -522,14 +470,13 @@ switch num {
 // print: 7 odd
 ```
 
-
-
 ### Logical Operators
 
 ```swift
 !true  // false
 !false //true
 ```
+
 ### Logical Operators &&
 
 ```swift
@@ -538,8 +485,6 @@ true && false  // false
 false && true  // false
 false && false // false
 ```
-
-
 
 ### Logical operators ||
 
@@ -550,22 +495,21 @@ false || true  // true
 false || false // false
 ```
 
-
-
 ### Combined Logical Operators
 
 ```swift
 !false && true || false // true
 ```
 
-`!false && true` first evaluates and returns `true` Then, the expression, `true` || `false` evaluates and returns the final result `true`
+`!false && true` first evaluates and returns `true` Then, the expression, `true` || `false` evaluates and returns the
+final result `true`
 
 ```swift
 false || true && false // false
 ```
-`true && false` first evaluates to return `false` Then, the expression, `false` || `false` evaluates and returns the final result `false`
 
-
+`true && false` first evaluates to return `false` Then, the expression, `false` || `false` evaluates and returns the
+final result `false`
 
 ### Control the order of execution
 
@@ -581,8 +525,6 @@ true || true && false || false
 
 ```
 
-
-
 ### Simple guards
 
 ```swift
@@ -597,10 +539,7 @@ greet(name: "Asma") // output: Hello Asma!
 greet(name: nil)    // output: Hello guest!
 ```
 
-cycle
-----
-
-
+## cycle
 
 ### scope
 
@@ -608,8 +547,6 @@ cycle
 let zeroToThree = 0...3
 //zeroToThree: 0, 1, 2, 3
 ```
-
-
 
 ### stride() function
 
@@ -620,8 +557,6 @@ for oddNum in stride(from: 1, to: 5, by: 2) {
 // print: 1
 // print: 3
 ```
-
-
 
 ### for-in loop
 
@@ -634,8 +569,6 @@ for char in "hehe" {
 // print: h
 // print: e
 ```
-
-
 
 ### continue keyword
 
@@ -653,8 +586,6 @@ for num in 0...5 {
 
 The `continue` keyword will force the loop to continue for the next iteration
 
-
-
 ### break keyword
 
 ```swift
@@ -671,8 +602,6 @@ if char == "c" {
 // print: r
 ```
 
-
-
 ### Use underscores
 
 ```swift
@@ -684,13 +613,11 @@ for _ in 1...3 {
 // print: Ole
 ```
 
-
-
 ### while loop
 
 ```swift
 var counter = 1
-var stopNum = Int. random(in: 1...10)
+var stopNum = Int.random(in: 1...10)
 
 while counter < stopNum {
   print(counter)
@@ -699,21 +626,17 @@ while counter < stopNum {
 // loop to print until the stop condition is met
 ```
 
-A `while` loop accepts a condition and keeps executing its body code while the provided condition is `true`. If the condition is never false, the loop will keep running and the program will get stuck in an `infinite loop`
+A `while` loop accepts a condition and keeps executing its body code while the provided condition is `true`. If the
+condition is never false, the loop will keep running and the program will get stuck in an `infinite loop`
 
-Arrays and collections
-----
+## Arrays and collections
 
-
-
-### Array array
+### Array
 
 ```swift
 var scores = [Int]()
 // array is empty: []
 ```
-
-
 
 ### .count property
 
@@ -723,11 +646,10 @@ print(grocery.count)
 // print: 5
 ```
 
-
-
 ### index {.row-span-2}
 
-The index refers to the item's position in the ordered list, and a single element is retrieved from the array using the subscript syntax `array[index]`.
+The index refers to the item's position in the ordered list, and a single element is retrieved from the array using the
+subscript syntax `array[index]`.
 
 ```swift
 var vowels = ["a", "e", "i", "o", "u"]
@@ -741,8 +663,6 @@ print(vowels[4]) // prints: u
 
 Note: Swift arrays are zero-indexed, meaning the first element has index 0.
 
-
-
 ### Initialize with array literal
 
 ```swift
@@ -752,7 +672,15 @@ var snowfall = [2.4, 3.6, 3.4, 1.8, 0.0]
 var temp: [Int] = [33, 31, 30, 38, 44]
 ```
 
+### Initialize with default value
 
+```swift
+var teams = [Int](repeating: 0, count: 3)
+print(teams) // prints: [0, 0, 0]
+// or with Array type
+var sizes = Array<Int>(repeating: 0, count: 3)
+print(sizes) // prints: [0, 0, 0]
+```
 
 ### .append() method and += operator
 
@@ -764,8 +692,6 @@ gymBadges += ["Rainbow", "Soul"]
 // "Rainbow", "Soul"]
 ```
 
-
-
 ### .insert() and .remove() methods
 
 ```swift
@@ -773,13 +699,11 @@ var moon = ["🌖", "🌗", "🌘", "🌑"]
 moon.insert("🌕", at: 0)
 // ["🌕", "🌖", "🌗", "🌘", "🌑"]
 
-moon. remove(at: 4)
+moon.remove(at: 4)
 // ["🌕", "🌖", "🌗", "🌘"]
 ```
 
-
-
-### Traverse the array
+### Iterate over an array
 
 ```swift
 var employees = ["Peter", "Denial", "Jame"]
@@ -790,8 +714,6 @@ for person in employees {
 // print: Denial
 // print: Jam
 ```
-
-
 
 ### Collection (Set)
 
@@ -805,18 +727,14 @@ var paintingsInMOMA: Set = [
 
 We can use a collection (`Set`) to store `unique` elements of the same data type
 
-
-
 ### Empty collection (Set)
 
 ```swift
 var team = Set<String>()
 
 print(team)
-// print: [] 
+// print: []
 ```
-
-
 
 ### Populate the collection
 
@@ -825,8 +743,6 @@ var vowels: Set = ["a", "e", "i", "o","u"]
 ```
 
 To create a set filled with values, use the `Set` keyword before the assignment operator.
-
-
 
 ### .insert()
 
@@ -838,8 +754,6 @@ var cookieJar: Set = [
 // add a new element
 cookieJar.insert("Peanut Butter Chip")
 ```
-
-
 
 ### .remove() and .removeAll() methods
 
@@ -866,6 +780,16 @@ if names.contains("Waldo"){
 // print: There's Waldo!
 ```
 
+### .isEmpty property
+
+```swift
+var emptyList = [String]()
+print(emptyList.isEmpty)     // print: true
+
+var populatedList: [Int] = [1, 2, 3]
+print(populatedList.isEmpty) // print: false
+```
+
 ### Iterate over a collection
 
 ```swift
@@ -875,8 +799,6 @@ for ingredient in recipe {
   print ("Include \(ingredient) in the recipe")
 }
 ```
-
-
 
 ### .isEmpty property
 
@@ -897,8 +819,6 @@ print("The band has \(band.count) players.")
 // print: Band has 4 players.
 ```
 
-
-
 ### .intersection() Intersection
 
 ```swift
@@ -909,7 +829,6 @@ var setC = setA.intersection(setB)
 print(setC) // print: ["D", "C"]
 ```
 
-
 ### .union()
 
 ```swift
@@ -917,9 +836,10 @@ var setA: Set = ["A", "B", "C", "D"]
 var setB: Set = ["C", "D", "E", "F"]
 
 var setC = setA.union(setB)
-print(setC) 
+print(setC)
 // print: ["B", "A", "D", "F", "C", "E"]
 ```
+
 ### .symmetricDifference() Symmetric difference
 
 ```swift
@@ -931,21 +851,18 @@ print(setC)
 // print: ["B", "E", "F", "A"]
 ```
 
-
-
 ### .subtracting() Subtraction
+
 ```swift
 var setA: Set = ["A", "B", "C", "D"]
 var setB: Set = ["C", "D"]
 
 var setC = setA.subtracting(setB)
-print(setC) 
+print(setC)
 // print: ["B", "A"]
 ```
-dictionary
----
 
-
+## dictionary
 
 ### Base Dictionary
 
@@ -959,8 +876,6 @@ var dictionaryName = [
 
 An `unordered` collection of pairs of data or key-value pairs
 
-
-
 ### Keys
 
 ```swift
@@ -972,8 +887,6 @@ var fruitStand = [
 ```
 
 Each `key` is `unique` even if they all contain the same `value`
-
-
 
 ### Type Consistency
 
@@ -987,8 +900,6 @@ var numberOfSides = [
 
 Contains only `String` keys and `Int` values
 
-
-
 ### Initialize and populate the dictionary
 
 ```swift
@@ -998,6 +909,7 @@ var employeeID = [
   "Ophelia": 9318
 ]
 ```
+
 ### Initialize an empty dictionary
 
 ```swift
@@ -1007,8 +919,6 @@ var yearlyFishPopulation = [Int: Int]()
 // Empty dictionary literal syntax:
 var yearlyBirdPopulation: [Int: Int] = [:]
 ```
-
-
 
 ### add to dictionary
 
@@ -1020,8 +930,6 @@ var pronunciation = [
 // new key: "programming", new value: "prow gra"
 pronunciation["programming"] = "prow·gra"
 ```
-
-
 
 ### Delete key-value pair {.row-span-2}
 
@@ -1036,10 +944,10 @@ var bookShelf = [
 bookShelf["The BFG"] = nil
 
 // remove value using .removeValue()
-bookShelf. removeValue(forKey: "Goodnight")
+bookShelf.removeValue(forKey: "Goodnight")
 
 // remove all values
-bookShelf. removeAll()
+bookShelf.removeAll()
 ```
 
 ### Modify the key-value pair {.row-span-2}
@@ -1055,12 +963,12 @@ var change = [
 change["Quarter"] = .25
 
 // Change the value using .updateValue()
-change. updateValue(.10, forKey: "Dime")
+change.updateValue(.10, forKey: "Dime")
 ```
 
-To change the value of a key-value pair, use the `.updateValue()` method or the subscript syntax by appending brackets `[ ]` with the existing keys within to the name of the dictionary, then adding the assignment operator _(`= `)_ followed by the modified value
-
-
+To change the value of a key-value pair, use the `.updateValue()` method or the subscript syntax by appending brackets
+`[ ]` with the existing keys within to the name of the dictionary, then adding the assignment operator _(`= `)_ followed
+by the modified value
 
 ### .isEmpty property
 
@@ -1073,6 +981,7 @@ bakery["Cupcakes"] = 12
 // check if the dictionary is empty
 print(bakery.isEmpty) // print false
 ```
+
 ### .count property
 
 ```swift
@@ -1082,8 +991,6 @@ var fruitStand = [
 ]
 print(fruitStand.count) // print: 2
 ```
-
-
 
 ### Assigning values to variables
 
@@ -1103,9 +1010,8 @@ if let redHex = hex["red"] {
 // print: red hex code #ff0000
 ```
 
-Assigning the value of a key-value pair to a variable will return an optional value. To extract values, use the optional expansion
-
-
+Assigning the value of a key-value pair to a variable will return an optional value. To extract values, use the optional
+expansion
 
 ### Traversing the dictionary
 
@@ -1120,21 +1026,16 @@ for (emoji, meaning) in emojiMeaning {
   print("\(emoji) is called '\(meaning)Emoji'")
 }
 // iterate through keys only
-for emoji in emojiMeaning. keys {
+for emoji in emojiMeaning.keys {
   print(emoji)
 }
 // iterate through values only
-for meaning in emojiMeaning. values {
+for meaning in emojiMeaning.values {
   print(meaning)
 }
 ```
 
-
-
-function
----
-
-
+## function
 
 ### Basic functions
 
@@ -1147,8 +1048,6 @@ func washCar() -> Void {
 }
 ```
 
-
-
 ### Call functions
 
 ```swift
@@ -1159,8 +1058,6 @@ func greetLearner() {
 greetLearner()
 // print: Welcome to CheatSheets.zip!
 ```
-
-
 
 ### return value
 
@@ -1175,8 +1072,6 @@ func findAge() -> Int {
 print(findAge()) // prints: 26
 ```
 
-
-
 ### Multiple parameters {.col-span-2}
 
 ```swift
@@ -1188,8 +1083,6 @@ let decimal = convertFracToDec(numerator: 1.0, denominator: 2.0)
 print(decimal) // prints: 0.5
 ```
 
-
-
 ### Omit parameter labels
 
 ```swift
@@ -1199,8 +1092,6 @@ func findDiff(_ a: Int, b: Int) -> Int {
 
 print(findDiff(6, b: 4)) // prints: 2
 ```
-
-
 
 ### return multiple values {.col-span-2}
 
@@ -1214,8 +1105,6 @@ print(phone.name)         // print: iPhone
 print(phone.version)      // print: 8 Plus
 print(phone.yearReleased) // print: 2017
 ```
-
-
 
 ### Parameters & Arguments
 
@@ -1231,9 +1120,8 @@ print(perimeter) // print: 20
 // Argument: 5
 ```
 
-
-
 ### Implicit return
+
 ```swift
 func nextTotalSolarEclipse() -> String {
   "April 8th, 2024 🌎"
@@ -1242,7 +1130,6 @@ func nextTotalSolarEclipse() -> String {
 print(nextTotalSolarEclipse())
 // print: April 8th, 2024 🌎
 ```
-
 
 ### Default parameters
 
@@ -1253,8 +1140,6 @@ func greet(person: String = "guest") {
 greet() // Hello guest
 greet(person: "Aliya") // Hello Aliya
 ```
-
-
 
 ### Input and output parameters {.row-span-2}
 
@@ -1280,8 +1165,6 @@ season(month: 4, name: &currentSeason)
 print(currentSeason) // Spring 🌱
 ```
 
-
-
 ### variable parameter
 
 ```swift
@@ -1294,8 +1177,6 @@ print(totalStudent(data: "Denial", "Peter"))
 // print: 2
 ```
 
-
-
 ### Optional parameters
 
 ```swift
@@ -1304,12 +1185,10 @@ func getFirstInitial(from name: String?) -> String? {
 }
 ```
 
-Functions can accept optional types and return optional types. When a function cannot return a reasonable instance of the requested type, it should return `nil`
+Functions can accept optional types and return optional types. When a function cannot return a reasonable instance of
+the requested type, it should return `nil`
 
-structure
-----
-
-
+## structure
 
 ### Structure Creation
 
@@ -1319,14 +1198,13 @@ struct Building {
   var floors: Int
   init(address: String, floors: Int) {
     self.address = address
-    self. floors = floors
+    self.floors = floors
   }
 }
 ```
 
-Structs or structs are used to programmatically represent real-life objects in code. A structure is created using the `struct` keyword, followed by its name, followed by a body containing its properties and methods
-
-
+Structs or structs are used to programmatically represent real-life objects in code. A structure is created using the
+`struct` keyword, followed by its name, followed by a body containing its properties and methods
 
 ### Default property values
 
@@ -1342,8 +1220,6 @@ print(reliantRobin.numOfWheels) // prints: 3
 print(reliantRobin.topSpeed)    // print: 80
 ```
 
-
-
 ### Structural instance creation
 
 ```swift
@@ -1353,7 +1229,7 @@ struct Person {
 
   init(name: String, age: Int) {
     self.name = name
-    self. age = age
+    self.age = age
   }
 }
 
@@ -1367,7 +1243,7 @@ var morty = Person(name: "Peter", age: 14)
 struct TV {
   var size: Int
   var type: String
-  
+
   init(size: Int, type: String) {
     self.size = size
     self.type = type
@@ -1381,16 +1257,12 @@ Using the `TV` class
 var newTV = TV(size: 65, type: "LED")
 ```
 
-
-
 ### Check type
 
 ```swift
 print(type(of: "abc")) // print: String
 print(type(of: 123))   // print: 123
 ```
-
-
 
 ### Mutation method (mutating) {.row-span-2}
 
@@ -1412,8 +1284,6 @@ print(dinerMenu.menuItems)
 // prints: ["Fries", "Burgers", "Toast"]
 ```
 
-
-
 ### Structural methods
 
 ```swift
@@ -1426,10 +1296,7 @@ let fido = Dog()
 fido.bark() // prints: Woof
 ```
 
-class
-----
-
-
+## class
 
 ### reference type (class) {.row-span-2}
 
@@ -1450,8 +1317,6 @@ print(player1.name) // Isabella
 print(player2.name) // Isabella
 ```
 
-
-
 ### instance of the class
 
 ```swift
@@ -1463,8 +1328,6 @@ class Person {
 var sonny = Person()
 // sonny is now an instance of Person
 ```
-
-
 
 ### init() method {.row-span-2}
 
@@ -1484,9 +1347,9 @@ Using the Fruit class
 ```swift
 let apple = Fruit(color: "red")
 ```
-A class can be initialized using the `init()` method and the corresponding initialization properties. In the `init()` method, the `self` keyword is used to refer to the actual instance of the class assigning property values
 
-
+A class can be initialized using the `init()` method and the corresponding initialization properties. In the `init()`
+method, the `self` keyword is used to refer to the actual instance of the class assigning property values
 
 ### Class Attributes
 
@@ -1498,8 +1361,6 @@ ferris.year = 12
 ferris.gpa = 3.81
 ferris.honors = false
 ```
-
-
 
 ### Inherit {.row-span-2}
 
@@ -1521,18 +1382,17 @@ class BankAccount {
 
 ```swift
 class SavingsAccount: BankAccount {
-  varinterest = 0.0
+  var interest = 0.0
 
   func addInterest() {
     let interest = balance *0.005
-    self. deposit(amount: interest)
+    self.deposit(amount: interest)
   }
 }
 ```
 
-The new `SavingsAccount` class (subclass) automatically gets all the characteristics of the `BankAccount` class (superclass). Additionally, the `SavingsAccount` class defines an `.interest` property and an `.addInterest()` method.
-
-
+The new `SavingsAccount` class (subclass) automatically gets all the characteristics of the `BankAccount` class
+(superclass). Additionally, the `SavingsAccount` class defines an `.interest` property and an `.addInterest()` method.
 
 ### Example
 
@@ -1556,6 +1416,7 @@ class Student {
   var honors = false
 }
 ```
+
 ### This is an example of a struct definition and a class definition
 
 ```swift
@@ -1571,18 +1432,15 @@ class VideoMode {
 }
 ```
 
-The `Resolution` structure definition and the `VideoMode` class definition only describe the appearance of `Resolution` or `VideoMode`, create an instance of the structure or class:
+The `Resolution` structure definition and the `VideoMode` class definition only describe the appearance of `Resolution`
+or `VideoMode`, create an instance of the structure or class:
 
 ```swift
 let resolution = Resolution(width: 1920)
 let someVideoMode = VideoMode()
 ```
 
-
-Enumerate
-----
-
-
+## Enumerate
 
 ### Define the enumeration
 
@@ -1599,8 +1457,6 @@ enum Day {
 
 let casualWorkday: Day = .friday
 ```
-
-
 
 ### Switch statement
 
@@ -1621,8 +1477,6 @@ switch customerOrder {
 // prints: "You ordered a red velvet cake"
 ```
 
-
-
 ### CaseIterable
 
 ```swift
@@ -1638,9 +1492,8 @@ for season in Season.allCases {
 }
 ```
 
-Add conformance to the `CaseIterable` protocol to access the `allCases` property, which returns an array of all cases of the enumeration
-
-
+Add conformance to the `CaseIterable` protocol to access the `allCases` property, which returns an array of all cases of
+the enumeration
 
 ### Original value
 
@@ -1653,8 +1506,6 @@ print("The Beatles are \(Beatle.john.rawValue).")
 // print: The Beatles are john.
 ```
 
-
-
 ### Related values
 
 ```swift
@@ -1666,8 +1517,6 @@ enum Dessert {
 
 let order: Dessert = .cake(flavor: "Red Velvet")
 ```
-
-
 
 ### instance method {.row-span-2}
 
@@ -1683,13 +1532,12 @@ enum Traffic {
 
 var currentTraffic: Traffic = .light
 
-currentTraffic. reportAccident()
+currentTraffic.reportAccident()
 // currentTraffic is now .heavy
 ```
 
-Just like classes and structs, enumerations can have instance methods. If an instance method mutates the value of the enum, it needs to be marked `mutating`
-
-
+Just like classes and structs, enumerations can have instance methods. If an instance method mutates the value of the
+enum, it needs to be marked `mutating`
 
 ### Initialize from primitive value
 
@@ -1705,8 +1553,6 @@ print(hello1) // Optional(Hello.japanese)
 print(hello2) // nil
 ```
 
-
-
 ### Computed properties
 
 ```swift
@@ -1721,8 +1567,309 @@ enum ShirtSize: String {
 }
 ```
 
-Also See
-----
+## Extensions
+
+### What are extensions?
+
+Extensions is a way to add new add new functionality to existing classes, structures, enumerations, or protocol types. This includes adding new methods, properties, initializers, and more.
+
+### Why use extensions?
+
+Extensions are particularly useful for organizing and modularizing our code without needing to modify the original type, especially when we don't have access to the original source code.
+
+### Extension syntax
+
+```swift
+extension SomeType {
+    // New functionalities to be added
+}
+```
+
+### Computed properties
+
+```swift
+extension Int {
+    var isEven: Bool {
+        self % 2 == 0
+    }
+}
+
+print(4.isEven) // Outputs: true
+print(7.isEven) // Outputs: false
+```
+
+### Methods
+
+```swift
+extension String {
+    func reverse() -> String {
+        String(self.reversed())
+    }
+}
+
+print("abc".reverse()) // Output: cba
+```
+
+### Mutating methods
+
+```swift
+extension Int {
+    mutating func square() {
+        self = self * self
+    }
+}
+
+var number = 5
+number.square()
+print(number) // Output: 25
+```
+
+### Initializers
+
+```swift
+extension Date {
+    init?(timestamp: Double) {
+        self.init(timeIntervalSince1970: timestamp)
+    }
+}
+
+let timestamp = 1693982400.0 // Unix timestamp for 2023-09-06 06:40:00
+if let date = Date(timestamp: timestamp) {
+    print(date) // Output: 2023-09-06 06:40:00 +0000
+}
+```
+
+### Subscripts
+
+```swift
+extension String {
+    subscript(index: Int) -> Character {
+        self[self.index(startIndex, offsetBy: index)]
+    }
+}
+
+print("Swift"[0]) // Output: S
+print("Swift"[1]) // Output: w
+print("Swift"[2]) // Output: i
+print("Swift"[3]) // Output: f
+print("Swift"[4]) // Output: t
+```
+
+### Protocol extensions {.row-span-2}
+
+It works pretty much like abstract classes when regarding a functionality we want to be available in all the classes that implements some protocol (without having to inherit from a base common class).
+
+```swift
+// Define a protocol
+protocol Describable {
+    func describe() -> String
+}
+
+// Provide a default implementation using a protocol extension
+extension Describable {
+    func describe() -> String {
+        "This is a generic description"
+    }
+}
+
+// Define a struct that conforms Describable protocol
+struct Person: Describable {
+    var name: String
+    var age: Int
+
+    // Overriding the default implementation
+    func describe() -> String {
+        "My name is \(name) and I am \(age) years old."
+    }
+}
+
+struct Employee: Describable {
+    var name: String
+    var age: Int
+
+    // Using the default implementation
+}
+
+// By just implementing the protocol the describe() method is available
+
+let person = Person(name: "Ivan", age: 21)
+let employee = Employee(name: "Saul", age: 25)
+
+print(person.describe()) // Output: My name is Ivan and I am 21 years old.
+print(employee.describe()) // Output: This is a generic description
+```
+
+### Constraints for extensions
+
+This is especially useful when we want to add functionality to a type that conforms to a specific protocol or has certain conditions.
+
+```swift
+extension Array where Element: Numeric {
+    func sum() -> Element {
+        reduce(0, +)
+    }
+}
+
+let numbers = [1, 2, 3, 4, 5]
+print(numbers.sum()) // Output: 15
+
+let doubles = [1.5, 2.5, 3.5]
+print(doubles.sum()) // Output: 7.5
+
+// This will not work because String is not Numeric
+// let strings = ["a", "b", "c"]
+// print(strings.sum()) // Error: Cannot invoke 'sum' with an array of strings
+```
+
+### Organizing code with extensions
+
+Extensions are not limited to adding functionality; they are also handy for code organization. We can group related methods, properties or views in separate extensions.
+
+```swift
+import SwiftUI
+
+struct HomeView: View {
+    var body: some View {
+        ScrollView {
+            header
+            // Add other views
+        }
+    }
+}
+
+extension HomeView {
+    private var header: some View {
+        Text("Header ...")
+    }
+}
+
+#Preview {
+    HomeView()
+}
+```
+
+## Generics
+
+### What are generics?
+
+Generics in Swift are a feature that allows us to create functions, classes, structures, and protocols that can work with any data type.
+
+### Why use generics?
+
+Generics enable us to write clear and concise code that works with any data type. By using placeholders (like `T`), this reduces the risk of introducing bugs.
+
+### Type parameters {.row-span-2}
+
+```swift
+func foo<T, U>(a: T, b: U) {
+  // ...
+}
+
+struct Foo<T, U> {
+  var a: T
+  // ...
+}
+```
+
+The placeholders `T` is an example of a type parameter, are written inside angle brackets(such as `<T>`).
+
+### Generic Data Structures
+
+```swift
+struct Box<T> {
+    var value: T
+}
+let intBox = Box(value: 10)
+let stringBox = Box(value: "Hello")
+
+print(intBox.value) // Output: 10
+print(stringBox.value) // Output: "Hello"
+```
+
+### Generic Functions {.row-span-2}
+
+```swift
+func swapValues<T>(_ a: inout T, _ b: inout T) {
+    let temp = a
+    a = b
+    b = temp
+}
+
+var a = 10
+var b = 20
+swapValues(&a, &b)
+print(a) // Output: 20
+print(b) // Output: 10
+
+var c = "Hello"
+var d = "World"
+swapValues(&c, &d)
+print(c) // Output: "World"
+print(d) // Output: "Hello"
+```
+
+### Constraints on Generics
+
+```swift
+func sum<T: Numeric>(_ array: [T]) -> T {
+    array.reduce(0, +)
+}
+
+print(sum([1, 1.5, 2])) // Output: 4.5
+
+// This will not work because String is not Numeric
+// print(sum(["a", "b", "c"]))
+// Error: function 'sum' requires that 'String' conform to 'Numeric'
+```
+
+### Associated Types
+
+```swift
+protocol Foo {
+    associatedtype T
+    func foo() -> T
+}
+```
+
+Associated types are used in protocols to define a placeholder for a type that will be specified later. They act as a generic placeholder. The exact type isn't defined in the protocol itself; instead, it's determined when a class, struct, or enum conforms to the protocol.
+
+### Generic Protocols {.row-span-2}
+
+```swift
+protocol Storage {
+    associatedtype Item
+    func store(item: Item)
+    func retrieve() -> Item?
+}
+
+class SimpleStorage<T>: Storage {
+    private var items: [T] = []
+
+    func store(item: T) {
+        items.append(item)
+    }
+
+    func retrieve() -> T? {
+        return items.isEmpty ? nil : items.removeLast()
+    }
+}
+
+let intStorage = SimpleStorage<Int>()
+intStorage.store(item: 42)
+print(intStorage.retrieve() ?? "Empty")  // Output: 42
+```
+
+### Generic Typealiases
+
+Generic typealiases allow us to create a new name for an existing type (i.e., they would not introduce a new type).
+
+```swift
+typealias StringDictionary<T> = [String: T]
+typealias IntFunction<T> = (Int) -> Int
+typealias Vector<T> = (T, T, T)
+```
+
+## Also See
 
 - [Swift Documentation (Official)](https://www.swift.org/documentation/) _(swift.or)_
 - [Swift Programming Language (Official)](https://docs.swift.org/swift-book/) _(swift.or)_
